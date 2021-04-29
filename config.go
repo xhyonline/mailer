@@ -31,7 +31,7 @@ func SendByConfig(path, template, bodyPath string) error {
 		return fmt.Errorf("配置文件不存在")
 	}
 	cfg := new(Config)
-	if _, err = toml.DecodeFile("./mailer.toml", cfg); err != nil {
+	if _, err = toml.DecodeFile(path, cfg); err != nil {
 		return fmt.Errorf("配置文件不存在")
 	}
 	cfg.MailerConfig.User = os.Getenv("MAILER_USER")
