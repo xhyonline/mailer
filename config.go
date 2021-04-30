@@ -98,6 +98,7 @@ func TemplateReplace(template, body string) (string, error) {
 		info = template[strings.Index(template, "=")+1 : leftIndex]
 	}
 	body = strings.Replace(body, tag, info, 1)
+	body = strings.TrimRight(body,",")
 	template = strings.Replace(template, info, "", 1)
 	template = strings.Replace(template, "=", "", 1)
 	return TemplateReplace(template, body)
