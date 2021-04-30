@@ -71,7 +71,6 @@ func SendByConfig(path, template, bodyPath string) error {
 			return err
 		}
 	}
-	fmt.Printf("%+v",cfg.MailerConfig)
 	return mail.NewMail(cfg.MailerConfig).Send(cfg.Content.Subject, cfg.Content.From, cfg.Content.Body, cfg.Content.ToUser...)
 }
 
