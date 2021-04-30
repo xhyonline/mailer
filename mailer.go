@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/xhyonline/xutil/xlog"
+	"os"
 )
 
 
@@ -25,10 +26,12 @@ func main() {
 
 	if *configPath=="" {
 		logger.Errorf("请设置参数完整的发送参数")
+		os.Exit(1)
 	}
 	err:=SendByConfig(*configPath,*template,*bodyPath)
 	if err!=nil {
 		logger.Errorf("%s",err)
+		os.Exit(1)
 	}
 
 }
