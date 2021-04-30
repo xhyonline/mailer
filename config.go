@@ -55,6 +55,10 @@ func SendByConfig(path, template, bodyPath string) error {
 	if cfg.MailerConfig.Port == 0 {
 		return fmt.Errorf("环境变量 MAILER_PORT 不能为空")
 	}
+
+	if bodyPath==""  && cfg.Content.Body==""{
+		return fmt.Errorf("邮件正文不能为空")
+	}
 	if bodyPath!="" {
 		if  exists, err = helper.PathExists(bodyPath);!exists||err!=nil{
 			return fmt.Errorf("bodyPath 路径不存在")
