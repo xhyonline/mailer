@@ -99,6 +99,7 @@ func TemplateReplace(template, body string) (string, error) {
 	}
 	body = strings.Replace(body, tag, info, 1)
 	body = strings.TrimRight(body,",")
+	fmt.Println(body)
 	template = strings.Replace(template, info, "", 1)
 	template = strings.Replace(template, "=", "", 1)
 	return TemplateReplace(template, body)
